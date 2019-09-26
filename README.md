@@ -7,3 +7,7 @@ The Smart Campus project is a web application that is set up to manage LoRaWAN s
 * Light
 * Motion
 * Battery
+
+## Project documentation
+
+[https://gracious-bell-4bdcdd.netlify.com/](https://gracious-bell-4bdcdd.netlify.com/)
