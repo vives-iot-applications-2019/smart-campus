@@ -37,7 +37,11 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        \App\Room::create([
+            'number' => $request->get('number'),
+            'name' => $request->get('name'),
+            'description' => $request->get('description'),
+        ]);
     }
 
     /**
