@@ -14,6 +14,9 @@ class RoomController extends Controller
     public function index()
     {
         //
+        $rooms = \App\Room::all();
+        return $rooms;
+
     }
 
     /**
