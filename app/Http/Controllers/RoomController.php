@@ -63,7 +63,12 @@ class RoomController extends Controller
      */
     public function edit($id)
     {
-        //
+        //find the room with the id
+        $room = Room::find($id);
+
+        //show the edit form
+        return View::make('room.edit')
+            ->with('room', $room);
     }
 
     /**
@@ -75,7 +80,15 @@ class RoomController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // store
+        $room = Room::find($id);
+        $room->number       = Input::get('number');
+        $room->name         = Input::get('name');
+        $room->description  = Input::get('description');
+        $room->save();
+
+        //confirmation
+        Session::flash('message', 'Successfully updated the room!');
     }
 
     /**
@@ -86,6 +99,11 @@ class RoomController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //delete
+        $rooms = Room::find($id);
+        $rooms->delete();
+
+        //confirmation
+        Session::flash('message', 'Successfully deleted!');
     }
 }
