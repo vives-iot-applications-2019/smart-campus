@@ -63,10 +63,47 @@ This command will generate a controller at `app/Http/Controllers/RoomController.
 
 Next, you may register a resourceful route to the controller (in `routes/web.php`):
 
->`Route::resource('rooms', 'RoomController');`
+```
+Route::resource('rooms', 'RoomController');
+```
 
 This single route declaration creates multiple routes to handle a variety of actions on the resource. The generated controller will already have methods stubbed for each of these actions, including notes informing you of the HTTP verbs and URIs they handle.
 
 You may register many resource controllers at once by passing an array to the resources method:
 
->`Route::resources(['rooms' => 'RoomController']);`
+```
+Route::resources(['rooms' => 'RoomController']);
+```
+
+## Add rooms migration
+
+Migrations are like version control for your database, allowing your team to easily modify and share the application's database schema. Migrations are typically paired with Laravel's schema builder to easily build your application's database schema. If you have ever had to tell a teammate to manually add a column to their local database schema, you've faced the problem that database migrations solve.
+
+To create a migration, use the make:migration Artisan command:
+
+```
+php artisan make:migration create_rooms_table
+```
+
+The new migration will be placed in your `database/migrations` directory. Each migration file name contains a timestamp which allows Laravel to determine the order of the migrations.
+
+The `--table` and `--create` options may also be used to indicate the name of the table and whether the migration will be creating a new table. These options pre-fill the generated migration stub file with the specified table:
+
+```
+php artisan make:migration create_users_table --create=users
+php artisan make:migration add_votes_to_users_table --table=users
+```
+
+If you would like to specify a custom output path for the generated migration, you may use the `--path` option when executing the `make:migration` command. The given path should be relative to your application's base path.
+
+Example path:
+
+```
+database/migrations/2019_09_26_140104_create_rooms_table.php
+```
+
+To run all of your outstanding migrations, execute the migrate Artisan command:
+
+```
+php artisan migrate
+```
