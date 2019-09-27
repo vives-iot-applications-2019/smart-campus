@@ -58,3 +58,15 @@ This command will generate a controller at `app/Http/Controllers/RoomController.
 `--resource`
 
 >The controller will contain a method for each of the available resource operations – index(), create(), store(), show(), edit(), update(), destroy().
+
+## Add Room routes resource
+
+Next, you may register a resourceful route to the controller (in `routes/web.php`):
+
+>`Route::resource('rooms', 'RoomController');`
+
+This single route declaration creates multiple routes to handle a variety of actions on the resource. The generated controller will already have methods stubbed for each of these actions, including notes informing you of the HTTP verbs and URIs they handle.
+
+You may register many resource controllers at once by passing an array to the resources method:
+
+>`Route::resources(['rooms' => 'RoomController']);`

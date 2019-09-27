@@ -1,0 +1,41 @@
+<h1 id="smart-campus">Smart Campus</h1>
+<p>The Smart Campus project is a web application that is set up to manage LoRaWAN sensors that are installed in different rooms. The application provides a dashboard that show the current values and history of the following parameters:</p>
+<ul>
+<li>Temperature</li>
+<li>Humidity</li>
+<li>Light</li>
+<li>Motion</li>
+<li>Battery</li>
+</ul>
+<h2 id="project-setup">Project setup</h2>
+<p>The project is initialy set up with the following steps.</p>
+<h3 id="laravel">Laravel</h3>
+<p>Create new Laravel project in current directory</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">laravel</span> new</span></code></pre></div>
+<h3 id="documentation">Documentation</h3>
+<p>In order to manage the documentation that is generated while creating and developing this project, Vuepress is used. All documentations resides in the <code>/docs</code> directory.</p>
+<p>First you need to install Vuepress globally.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">npm</span> install -g vuepress</span></code></pre></div>
+<p>To start the documentation server, run the following command:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">npm</span> run docs:dev</span></code></pre></div>
+<h2 id="add-roomcontroller">Add roomcontroller</h2>
+<p>Laravel resource routing assigns the typical “CRUD” routes to a controller with a single line of code. For example, you may wish to create a controller that handles all HTTP requests for “rooms” stored by your application. Using the make:controller Artisan command, we can quickly create such a controller:</p>
+<pre><code>php artisan make:controller RoomController --resource</code></pre>
+<p>This command will generate a controller at <code>app/Http/Controllers/RoomController.php</code>. The controller will contain a method for each of the available resource operations.</p>
+<p><code>artisan</code></p>
+<blockquote>
+<p>Artisan is the command-line interface included with Laravel. It provides a number of helpful commands that can assist you while you build your application.</p>
+</blockquote>
+<p><code>artisan make:controller</code></p>
+<blockquote>
+<p>Creates a new controller file.</p>
+</blockquote>
+<p><code>--resource</code></p>
+<blockquote>
+<p>The controller will contain a method for each of the available resource operations – index(), create(), store(), show(), edit(), update(), destroy().</p>
+</blockquote>
+<h2 id="add-room-routes-resource">Add Room routes resource</h2>
+<p>Next, you may register a resourceful route to the controller (in <code>routes/web.php</code>):</p>
+<blockquote>
+<p><code>Route::resource('rooms', 'RoomController');</code></p>
+</blockquote>
