@@ -107,3 +107,11 @@ To run all of your outstanding migrations, execute the migrate Artisan command:
 ```
 php artisan migrate
 ```
+
+## Disable CSRF
+
+## Add Room model
+
+## Implement index in RoomController
+
+## Implement store in RoomController
