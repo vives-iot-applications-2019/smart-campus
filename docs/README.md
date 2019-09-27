@@ -36,3 +36,25 @@ To start the documentation server, run the following command:
 npm run docs:dev
 ```
 
+## Add roomcontroller
+
+Laravel resource routing assigns the typical "CRUD" routes to a controller with a single line of code. For example, you may wish to create a controller that handles all HTTP requests for "rooms" stored by your application. Using the make:controller Artisan command, we can quickly create such a controller:
+
+```
+php artisan make:controller RoomController --resource
+```
+
+This command will generate a controller at `app/Http/Controllers/RoomController.php`. The controller will contain a method for each of the available resource operations.
+
+`artisan`
+
+>Artisan is the command-line interface included with Laravel. It provides a number of helpful commands that can assist you while you build your application.
+
+
+`artisan make:controller`
+
+>Creates a new controller file.
+
+`--resource`
+
+>The controller will contain a method for each of the available resource operations – index(), create(), store(), show(), edit(), update(), destroy().
