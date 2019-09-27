@@ -79,7 +79,7 @@ Route::resources(['rooms' => 'RoomController']);
 
 Migrations are like version control for your database, allowing your team to easily modify and share the application's database schema. Migrations are typically paired with Laravel's schema builder to easily build your application's database schema. If you have ever had to tell a teammate to manually add a column to their local database schema, you've faced the problem that database migrations solve.
 
-To create a migration, use the make:migration Artisan command:
+To create a migration, use the `make:migration` Artisan command:
 
 ```
 php artisan make:migration create_rooms_table
@@ -123,6 +123,16 @@ Edit `app/Http/Middleware/VerifyCsrfToken.php` as show below to disable the CSRF
 ```
 
 ## Add Room model
+
+The Eloquent ORM included with Laravel provides a beautiful, simple ActiveRecord implementation for working with your database. Each database table has a corresponding "Model" which is used to interact with that table. Models allow you to query for data in your tables, as well as insert new records into the table.
+
+Let's create an Eloquent model. Models typically live in the app (`app/Room.php`) directory, but you are free to place them anywhere that can be auto-loaded according to your composer.json file. All Eloquent models extend Illuminate\Database\Eloquent\Model class.
+
+The easiest way to create a model instance is using the `make:model` Artisan command:
+
+```
+php artisan make:model Room
+```
 
 ## Implement index in RoomController
 
